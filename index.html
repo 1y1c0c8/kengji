@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>坑記</title>
+  <meta name="description" content="考古探坑紀錄：多個坑位的位置、距離、高低關係與坑內層位、遺物，2D／3D 檢視。">
+  <meta name="theme-color" content="#fffdf9">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="坑記">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="apple-touch-icon" href="icon-180.png">
+  <link rel="icon" type="image/png" href="icon-180.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.css?v=0.1.0">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+<div id="app">
+  <header id="top">
+    <button id="btnProj" class="ghost proj" title="切換遺址"><span id="projName"></span><span class="caret">▾</span></button>
+    <div class="seg" id="viewSeg"><button data-v="site" class="on">遺址</button><button data-v="pit">坑位</button><button data-v="3d">3D</button></div>
+    <span class="sp"></span>
+    <label class="zdisp" title="高程顯示方式"><span>高程</span><select id="zDisp"><option value="abs">海拔</option><option value="rel">相對 BM</option><option value="depth">距坑口</option></select></label>
+    <button id="btnUndo" class="ghost icon hide-m" title="復原 ⌘Z" disabled>↶</button>
+    <button id="btnRedo" class="ghost icon hide-m" title="重做 ⇧⌘Z" disabled>↷</button>
+    <button id="btnSheet" class="ghost icon show-m" title="清單">☷</button>
+    <button id="btnMenu" class="ghost icon" title="選單">☰</button>
+  </header>
+
+  <div id="main">
+    <aside id="side">
+      <div class="grab"><span></span><button id="sheetClose" class="ghost x">✕</button></div>
+      <div id="panel" class="tab"></div>
+    </aside>
+
+    <section id="stage">
+      <canvas id="c2d"></canvas>
+      <div id="v3d" hidden></div>
+      <div id="tools" class="float"></div>
+      <div id="hint" hidden></div>
+      <div id="inspector" class="card" hidden></div>
+    </section>
+  </div>
+</div>
+<div id="modal" hidden></div>
+<div id="toast"></div>
+<script type="module" src="js/main.js?v=0.1.0"></script>
+</body>
+</html>
